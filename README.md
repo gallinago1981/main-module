@@ -1,4 +1,4 @@
-# build-module
+# main-module
 git submoduleを使用した複数リポジトリのビルド検証を行うためのリポジトリ
 
 # 検証したい内容
