@@ -12,3 +12,24 @@ OpenAPI Specからコードを自動生成し利用するプロジェクトにOp
 - main ブランチ同士でビルドすることが出来る
 - main module = featureブランチ、sub module = mainブランチでビルドすることが出来る
 - main module = featureブランチ、sub module = featureブランチでビルドすることが出来る
+
+# Git Submoduleの使い方
+
+1. Submoduleを追加する
+
+`.gitmodule`にsubmoduleを追加する
+
+```bash
+
+$ git submodule add  git@github.com:gallinago1981/sub-module.git sub-module
+
+```
+
+1. Submoduleを取り込む(更新する)
+
+2. submoduleを以下のコマンドを使用して取り込む
+
+``` bash
+$ git submodule update --init --recursive
+
+```
