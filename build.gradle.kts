@@ -13,7 +13,7 @@ tasks.register("initSubmodule") {
             println("sub-module already exists")
         } else {
             exec {
-                commandLine("git", "submodule", "update", "--init", "--recursive", "sub-module")
+                commandLine("git", "submodule", "update", "--init", "--recursive")
             }
         }
 
