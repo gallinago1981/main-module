@@ -30,6 +30,7 @@ jobs:
         run: chmod +x gradlew
       - name: update submodule
         run: |
+            git submodule init
             git submodule update --init --recursive
             git submodule update --remote
       - name: confirm submodule exists
