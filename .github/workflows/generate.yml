@@ -17,22 +17,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.mainModuleBranch }}
-          submodules: recursive
           fetch-depth: 0
-      - name: add exec permission
-        run: chmod +x gradlew
-      - name: Confirm submodules
-        run: ./gradlew initSubmodule
-      - name: confirm submodule exists
-        run: ls -la .
       - name: Setup java
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'corretto'
+      - name: add exec permission
+        run: chmod +x gradlew
+      - name: update submodule
+        run: |
+            git submodule update --init --recursive
+            git submodule update --remote
+      - name: confirm submodule exists
+        run: ls -la .
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
       - name: Generate OpenAPI Code
