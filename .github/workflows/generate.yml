@@ -31,6 +31,8 @@ jobs:
           distribution: 'corretto'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
+      - name: add exec permission
+        run: chmod +x gradlew
       - name: Generate OpenAPI Code
         run: ./gradlew build
       - name: check generate code
